@@ -10,13 +10,33 @@ namespace NoteRApp.Controllers
 {
     public class HomeController : Controller
     {
+        NoteContext db;
+        public HomeController(NoteContext noteContext)
+        {
+            db = noteContext;
+        }
+
         public IActionResult Index()
         {
+            Note n = new Note()
+            {
+                Header = "Greetin message",
+                Content = "Hello all!",
+                CreationDate = DateTime.Now
+            };
+                db.Notes.Add(n);
+            db.SaveChanges();
+
             return View();
         }
 
         public IActionResult Privacy()
         {
+            //var n = db.Notes.FirstOrDefault();
+            //if (n != null)
+            //{
+            //    return $"Header : {n.Header}; Content = {n.Content}; CreationDate = {n.CreationDate}";
+            //}
             return View();
         }
 

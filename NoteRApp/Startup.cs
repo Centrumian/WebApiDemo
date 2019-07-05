@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,7 +32,10 @@ namespace NoteRApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<NoteContext>(options =>
+                options.UseSqlServer(connection));
+            services.AddMvc();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -44,8 +48,7 @@ namespace NoteRApp
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseExceptionHandler("/Home/Error");           
                 app.UseHsts();
             }
 

@@ -16,16 +16,23 @@ namespace NoteRApp.Controllers
             db = noteContext;
         }
 
+        [Route("api/check")]
+        [HttpGet]
+        public string Check()
+        {
+            return "123";
+        }
+
         public IActionResult Index()
         {
-            Note n = new Note()
-            {
-                Header = "Greetin message",
-                Content = "Hello all!",
-                CreationDate = DateTime.Now
-            };
-                db.Notes.Add(n);
-            db.SaveChanges();
+            //Note n = new Note()
+            //{
+            //    Header = "Greetin message",
+            //    Content = "Hello all!",
+            //    CreationDate = DateTime.Now
+            //};
+            //    db.Notes.Add(n);
+            //db.SaveChanges();
 
             return View();
         }

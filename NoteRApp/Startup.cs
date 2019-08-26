@@ -58,7 +58,7 @@ namespace NoteRApp
             }
 
             app.UseHttpsRedirection();
-            app.UseDefaultFiles();
+           // app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 

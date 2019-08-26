@@ -23,6 +23,7 @@ namespace NoteRApp.Controllers
             return "123";
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             //Note n = new Note()

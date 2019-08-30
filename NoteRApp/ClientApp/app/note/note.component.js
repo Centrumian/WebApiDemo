@@ -12,12 +12,18 @@ import { DataService } from './data.service';
 var NoteComponent = /** @class */ (function () {
     function NoteComponent(data) {
         this.data = data;
-        this.name = '';
         this.url = '/api/check';
+        this.usersData = '';
     }
     NoteComponent.prototype.check = function () {
         var _this = this;
-        this.data.getProducts().subscribe(function (str) { return _this.name = str; });
+        this.data.getProducts().subscribe(function (users) { return _this.users = users; });
+        this.InitUsersData();
+    };
+    NoteComponent.prototype.InitUsersData = function () {
+        for (var u in this.users) {
+            this.usersData += this.users[u].name + '\n';
+        }
     };
     NoteComponent = __decorate([
         Component({

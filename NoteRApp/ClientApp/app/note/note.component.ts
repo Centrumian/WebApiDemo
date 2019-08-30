@@ -1,5 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { DataService } from './data.service';
+import { User } from './user';
 
 @Component({
     selector: 'note',
@@ -10,12 +11,20 @@ import { DataService } from './data.service';
 
 export class NoteComponent {
 
-    name = '';
+    private users: User[];
     private url = '/api/check';
+    private usersData: string = '';
 
     constructor(private data: DataService) { }
 
     check() {
-        this.data.getProducts().subscribe((str: string) => this.name = str);
+        this.data.getProducts().subscribe((users: User[]) => this.users = users);
+        this.InitUsersData();
+    }
+
+    InitUsersData() {
+        for (var u in this.users) {
+            this.usersData += this.users[u].name + '\n';
+        }
     }
 }

@@ -5,46 +5,40 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NoteRApp.Models;
+using NoteRApp.Models.Database;
 
 namespace NoteRApp.Controllers
 {
     public class HomeController : Controller
     {
-        NoteContext db;
-        public HomeController(NoteContext noteContext)
+        IUserRepository repository;
+        public HomeController(IUserRepository userRepository)
         {
-            db = noteContext;
+            repository = userRepository;
         }
 
         [Route("api/check")]
         [HttpGet]
-        public string Check()
+        public IEnumerable<User> Check()
         {
-            return "123";
+            return repository.GetUsers();
+        }
+
+        [HttpGet]
+        public void Add(string name)
+        {
+            User user = new User() { Name = name };
+            repository.Create(user);
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            //Note n = new Note()
-            //{
-            //    Header = "Greetin message",
-            //    Content = "Hello all!",
-            //    CreationDate = DateTime.Now
-            //};
-            //    db.Notes.Add(n);
-            //db.SaveChanges();
-
             return View();
         }
 
         public IActionResult Privacy()
         {
-            //var n = db.Notes.FirstOrDefault();
-            //if (n != null)
-            //{
-            //    return $"Header : {n.Header}; Content = {n.Content}; CreationDate = {n.CreationDate}";
-            //}
             return View();
         }
 

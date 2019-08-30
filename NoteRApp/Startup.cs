@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NoteRApp.Models.Database;
 
 namespace NoteRApp
 {
@@ -34,8 +35,16 @@ namespace NoteRApp
             });
 
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<NoteContext>(options =>
-                options.UseSqlServer(connection));
+            if (Configuration.GetValue<bool>("UseDapper"))
+            {
+                services.AddScoped<IUserRepository, DapperUserRepository>(provider => new DapperUserRepository(connection));
+            }
+            else
+            {
+                services.AddDbContext<UserContext>(options =>
+                    options.UseSqlServer(connection));
+                services.AddScoped<IUserRepository, EFUserRepository>();
+            }
             services.AddMvc();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

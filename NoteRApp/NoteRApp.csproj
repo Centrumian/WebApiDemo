@@ -10,7 +10,8 @@
     <None Remove="ClientApp\app\app.component.ts" />
     <None Remove="ClientApp\app\app.module.ts" />
     <None Remove="ClientApp\app\note.ts" />
-    <None Remove="ClientApp\app\user.ts" />
+    <None Remove="ClientApp\app\user-item\user-item.component.ts" />
+    <None Remove="ClientApp\app\user-list\user-list.component.ts" />
     <None Remove="ClientApp\data.service.ts" />
     <None Remove="ClientApp\main.ts" />
     <None Remove="ClientApp\app\note\note.component.ts" />
@@ -30,11 +31,13 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\app.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\app.module.ts" />
-    <TypeScriptCompile Include="ClientApp\app\note\data.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\data.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\note\note.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\note\note.module.ts" />
     <TypeScriptCompile Include="ClientApp\app\note\note.ts" />
-    <TypeScriptCompile Include="ClientApp\app\note\user.ts" />
+    <TypeScriptCompile Include="ClientApp\app\user-item\user-item.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\user.ts" />
+    <TypeScriptCompile Include="ClientApp\app\user-list\user-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\main.ts" />
     <TypeScriptCompile Include="ClientApp\polyfills.ts" />
   </ItemGroup>

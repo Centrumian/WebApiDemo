@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { Component } from '@angular/core';
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'My notes';
+        this.title = 'Welcome, guys!';
     }
     AppComponent = __decorate([
         Component({

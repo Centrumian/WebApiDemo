@@ -8,11 +8,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { DataService } from './data.service';
+import { DataService } from '../data.service';
 var NoteComponent = /** @class */ (function () {
     function NoteComponent(data) {
         this.data = data;
-        this.url = '/api/check';
         this.usersData = '';
     }
     NoteComponent.prototype.check = function () {

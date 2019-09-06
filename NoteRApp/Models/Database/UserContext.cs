@@ -17,7 +17,9 @@ namespace NoteRApp.Models.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-                new User() { Id = 1, Name = "Bob"}
+                new User() { Id = 1, Name = "Bob", Age = 18, Country = "USA" },
+                new User() { Id = 2, Name = "Alex", Age = 20, Country = "Poland"},
+                new User() { Id = 3, Name = "Ivan", Age = 30}
                 );
 
         }

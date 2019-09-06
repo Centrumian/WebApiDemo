@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
-import { DataService } from './data.service';
-import { User } from './user';
+import { DataService } from '../data.service';
+import { User } from '../user';
 
 @Component({
     selector: 'note',
@@ -12,7 +12,6 @@ import { User } from './user';
 export class NoteComponent {
 
     private users: User[];
-    private url = '/api/check';
     private usersData: string = '';
 
     constructor(private data: DataService) { }

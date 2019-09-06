@@ -17,9 +17,9 @@ namespace NoteRApp.Controllers
             repository = userRepository;
         }
 
-        [Route("api/check")]
+        [Route("api/users")]
         [HttpGet]
-        public IEnumerable<User> Check()
+        public IEnumerable<User> GetUsers()
         {
             return repository.GetUsers();
         }

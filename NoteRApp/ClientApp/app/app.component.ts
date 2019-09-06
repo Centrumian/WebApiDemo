@@ -6,5 +6,5 @@
 })
 export class AppComponent {
 
-    title = 'My notes';
+    title = 'Welcome, guys!';
 }

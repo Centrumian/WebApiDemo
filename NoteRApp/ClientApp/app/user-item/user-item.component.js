@@ -11,7 +11,11 @@ import { Component, Input } from '@angular/core';
 import { User } from '../user';
 var UserItemComponent = /** @class */ (function () {
     function UserItemComponent() {
+        this.detailsHidden = true;
     }
+    UserItemComponent.prototype.changeDetailsVisibility = function () {
+        this.detailsHidden = !this.detailsHidden;
+    };
     __decorate([
         Input(),
         __metadata("design:type", User)
@@ -20,6 +24,7 @@ var UserItemComponent = /** @class */ (function () {
         Component({
             selector: 'user-item',
             templateUrl: './user-item.component.html',
+            styleUrls: ['./user-item.component.css']
         })
     ], UserItemComponent);
     return UserItemComponent;

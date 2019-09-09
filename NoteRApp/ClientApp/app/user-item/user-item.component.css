@@ -1,2 +1,10 @@
-﻿body {
+﻿.main {
+    color: #dfedfd;
+    background-color: darkseagreen;
+    padding: 12px;
+    cursor : pointer;
 }
+
+    .main:hover {
+        background-color: darkolivegreen
+    }

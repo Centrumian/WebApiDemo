@@ -1,2 +1,13 @@
-﻿<h1>{{title}}</h1>
-<user-list>..loading..</user-list>
+﻿
+<h1>{{title}}</h1>
+
+ <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div id="mainbody" class="col-6">
+            <user-list [users]="users" [selectedUser]="selectedUser">..loading..</user-list>
+        </div>
+        <aside class="col-4">
+            .sidebar
+        </aside>
+    </div>
+</div>

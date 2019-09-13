@@ -8,3 +8,7 @@
     .main:hover {
         background-color: darkolivegreen
     }
+
+    .item-details{
+        margin-left : 25px;
+    }

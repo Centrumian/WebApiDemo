@@ -14,5 +14,7 @@ namespace NoteRApp
         public int Age { get; set; }
 
         public string Country { get; set; }
+
+        public IEnumerable<Note> Notes { get; set; }
     }
 }

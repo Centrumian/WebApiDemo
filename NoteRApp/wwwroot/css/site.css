@@ -46,29 +46,35 @@ body {
   margin-bottom: 60px;
 }
 
-.maincontainer {
-    display : grid;
-    grid-template-columns : 1fr repeat(6, 1fr) 1fr;
-    grid-template-rows : 1fr 3fr 1fr
-}
-
-.masterhead {
-    grid-column : span 8;
-    background-color : darkseagreen
+header {
+    /*grid-column : span 8;*/
+    background-color: darkseagreen;
+    width: 100%;
+    margin-left : 0px;
 }
 
 main {
-    grid-column : 2/5;
+    /*grid-column : 2/5;*/
 }
 
-.sidebar {
-    grid-column : 6/8;
-    background-color :beige
+aside {
+    /*grid-column : 6/8;*/
+    background-color: beige;
+    height : 100%
 }
 
-.masterfooter {
-    grid-row: 3;
-    grid-column: span 8;
-    background-color: darkolivegreen
+#mainbody {
+    position : relative;
+
+}
+
+footer {
+    /*grid-row: 3;
+    grid-column: span 8;*/
+    background-color: darkolivegreen;
+    position : absolute;
+    bottom : 0px;
+    left : 0px;
+    width : 100%;
 }
 

@@ -7,24 +7,47 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { User } from '../user';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 var UserItemComponent = /** @class */ (function () {
     function UserItemComponent() {
-        this.detailsHidden = true;
+        this.onSelect = new EventEmitter();
+        this.animationState = 'hide';
     }
-    UserItemComponent.prototype.changeDetailsVisibility = function () {
-        this.detailsHidden = !this.detailsHidden;
+    UserItemComponent.prototype.select = function () {
+        this.onSelect.emit(this.user);
     };
     __decorate([
         Input(),
         __metadata("design:type", User)
     ], UserItemComponent.prototype, "user", void 0);
+    __decorate([
+        Input(),
+        __metadata("design:type", Boolean)
+    ], UserItemComponent.prototype, "detailsHidden", void 0);
+    __decorate([
+        Output(),
+        __metadata("design:type", EventEmitter)
+    ], UserItemComponent.prototype, "onSelect", void 0);
     UserItemComponent = __decorate([
         Component({
             selector: 'user-item',
             templateUrl: './user-item.component.html',
-            styleUrls: ['./user-item.component.css']
+            styleUrls: ['./user-item.component.css'],
+            animations: [
+                trigger('showHide', [
+                    state('show', style({
+                        opacity: 1
+                    })),
+                    state('hide', style({
+                        opacity: 0
+                    })),
+                    transition('hide => show', [
+                        animate('0.3s')
+                    ]),
+                ]),
+            ],
         })
     ], UserItemComponent);
     return UserItemComponent;

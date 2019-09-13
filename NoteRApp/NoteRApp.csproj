@@ -14,8 +14,6 @@
     <None Remove="ClientApp\app\user-list\user-list.component.ts" />
     <None Remove="ClientApp\data.service.ts" />
     <None Remove="ClientApp\main.ts" />
-    <None Remove="ClientApp\app\note\note.component.ts" />
-    <None Remove="ClientApp\app\note\note.module.ts" />
     <None Remove="ClientApp\polyfills.ts" />
   </ItemGroup>
 
@@ -32,9 +30,7 @@
     <TypeScriptCompile Include="ClientApp\app\app.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\app.module.ts" />
     <TypeScriptCompile Include="ClientApp\app\data.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\note\note.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\note\note.module.ts" />
-    <TypeScriptCompile Include="ClientApp\app\note\note.ts" />
+    <TypeScriptCompile Include="ClientApp\app\note.ts" />
     <TypeScriptCompile Include="ClientApp\app\user-item\user-item.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\user.ts" />
     <TypeScriptCompile Include="ClientApp\app\user-list\user-list.component.ts" />

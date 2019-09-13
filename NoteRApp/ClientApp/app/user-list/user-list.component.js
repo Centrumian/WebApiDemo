@@ -7,23 +7,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from '@angular/core';
-import { DataService } from '../data.service';
+import { Component, Input } from '@angular/core';
+import { User } from '../user';
 var UserListComponent = /** @class */ (function () {
-    function UserListComponent(dataService) {
-        this.dataService = dataService;
+    function UserListComponent() {
     }
-    UserListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.dataService.getProducts().subscribe(function (users) { return _this.users = users; });
+    UserListComponent.prototype.select = function (data) {
+        alert('zzz');
+        //this.selectedUser = selectedUser;
     };
+    __decorate([
+        Input(),
+        __metadata("design:type", Array)
+    ], UserListComponent.prototype, "users", void 0);
+    __decorate([
+        Input(),
+        __metadata("design:type", User)
+    ], UserListComponent.prototype, "selectedUser", void 0);
     UserListComponent = __decorate([
         Component({
             selector: 'user-list',
-            templateUrl: './user-list.component.html',
-            providers: [DataService]
-        }),
-        __metadata("design:paramtypes", [DataService])
+            templateUrl: './user-list.component.html'
+        })
     ], UserListComponent);
     return UserListComponent;
 }());

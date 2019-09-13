@@ -1,19 +1,17 @@
-﻿import { Component, OnInit } from '@angular/core'
-import { DataService } from '../data.service'
+﻿import { Component, Input } from '@angular/core'
 import { User } from '../user'
 
 @Component({
     selector: 'user-list',
-    templateUrl: './user-list.component.html',
-    providers: [DataService]
+    templateUrl: './user-list.component.html'
 })
-export class UserListComponent implements OnInit {
 
-    private users : User[];
+export class UserListComponent  {
+    @Input() users: User[];
+    @Input() selectedUser: User;
 
-    constructor(private dataService: DataService) { }
-
-    ngOnInit() {
-        this.dataService.getProducts().subscribe((users: User[]) => this.users = users);
-    } 
+    select(data : User) {
+        alert('zzz');
+        //this.selectedUser = selectedUser;
+    }
 }

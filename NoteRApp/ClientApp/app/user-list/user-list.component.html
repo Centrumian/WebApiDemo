@@ -1,4 +1,8 @@
 ﻿<h1 *ngIf="users">Count of users : {{users.length}}</h1>
+<user-item *ngFor="let user of users"
+           [user]="user"
+           [detailsHidden]="selectedUser != user"
+           (select)="select($event)">
+</user-item>        
 
-<user-item *ngFor="let user of users" [user]="user">
-</user-item>
+

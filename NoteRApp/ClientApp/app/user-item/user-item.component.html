@@ -1,4 +1,4 @@
-﻿<div class="main" (click)="changeDetailsVisibility()">{{user.name}}</div>
+﻿<button class="main" (click)="select()">{{user.name}}</button>
 <div class="item-details" [hidden]="detailsHidden" >
     <p>age : {{user.age}}</p>
     <p *ngIf="user.country">country : {{user.country}}</p>

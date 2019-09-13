@@ -2,7 +2,7 @@
 <user-item *ngFor="let user of users"
            [user]="user"
            [detailsHidden]="selectedUser != user"
-           (select)="select($event)">
+           (onSelect)="select($event)">
 </user-item>        
 
 

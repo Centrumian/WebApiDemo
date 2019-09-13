@@ -11,7 +11,6 @@ export class UserListComponent  {
     @Input() selectedUser: User;
 
     select(data : User) {
-        alert('zzz');
-        //this.selectedUser = selectedUser;
+        this.selectedUser = data;
     }
 }

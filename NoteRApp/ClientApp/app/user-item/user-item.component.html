@@ -1,5 +1,7 @@
-﻿<button class="main" (click)="select()">{{user.name}}</button>
-<div class="item-details" [hidden]="detailsHidden" >
+﻿<div class="main" (click)="select()">{{user.name}}</div>
+<div class="item-details" 
+     [hidden]="detailsHidden"
+     [@showHide]="detailsHidden ? 'hide' : 'show'">
     <p>age : {{user.age}}</p>
     <p *ngIf="user.country">country : {{user.country}}</p>
 </div>

@@ -13,8 +13,7 @@ var UserListComponent = /** @class */ (function () {
     function UserListComponent() {
     }
     UserListComponent.prototype.select = function (data) {
-        alert('zzz');
-        //this.selectedUser = selectedUser;
+        this.selectedUser = data;
     };
     __decorate([
         Input(),

@@ -7,22 +7,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, Input } from '@angular/core';
-import { User } from '../user';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 var UserListComponent = /** @class */ (function () {
     function UserListComponent() {
+        this.selectedUserChange = new EventEmitter();
     }
+    Object.defineProperty(UserListComponent.prototype, "selectedUser", {
+        get: function () {
+            return this.selUser;
+        },
+        set: function (value) {
+            this.selUser = value;
+            this.selectedUserChange.emit(this.selUser);
+        },
+        enumerable: true,
+        configurable: true
+    });
     UserListComponent.prototype.select = function (data) {
         this.selectedUser = data;
     };
+    __decorate([
+        Output(),
+        __metadata("design:type", Object)
+    ], UserListComponent.prototype, "selectedUserChange", void 0);
     __decorate([
         Input(),
         __metadata("design:type", Array)
     ], UserListComponent.prototype, "users", void 0);
     __decorate([
         Input(),
-        __metadata("design:type", User)
-    ], UserListComponent.prototype, "selectedUser", void 0);
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], UserListComponent.prototype, "selectedUser", null);
     UserListComponent = __decorate([
         Component({
             selector: 'user-list',

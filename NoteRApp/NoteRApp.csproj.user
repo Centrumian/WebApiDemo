@@ -5,5 +5,16 @@
   </PropertyGroup>
   <PropertyGroup>
     <ActiveDebugProfile>NoteRApp</ActiveDebugProfile>
+    <ToolsVersionPromptShown>3.5</ToolsVersionPromptShown>
   </PropertyGroup>
+  <ItemGroup>
+    <TypeScriptCompile Update="ClientApp\app\note-item\note-item.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Update="ClientApp\app\note-list\note-list.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
 </Project>

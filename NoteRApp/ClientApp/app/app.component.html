@@ -4,10 +4,11 @@
  <div class="container-fluid">
     <div class="row justify-content-center">
         <div id="mainbody" class="col-6">
-            <user-list [users]="users" [selectedUser]="selectedUser">..loading..</user-list>
+            <user-list [users]="users" 
+                       [(selectedUser)]="selectedUser">..loading..</user-list>
         </div>
         <aside class="col-4">
-            .sidebar
+            <note-list [notes]="selectedUser ? selectedUser.notes : []">...loading...</note-list>
         </aside>
     </div>
 </div>

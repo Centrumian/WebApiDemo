@@ -1,4 +1,4 @@
-﻿import { Component, Input } from '@angular/core'
+﻿import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { User } from '../user'
 
 @Component({
@@ -7,8 +7,19 @@ import { User } from '../user'
 })
 
 export class UserListComponent  {
+    selUser: User;
+
+    @Output() selectedUserChange = new EventEmitter();
+
     @Input() users: User[];
-    @Input() selectedUser: User;
+    @Input()
+    get selectedUser() {
+        return this.selUser;
+    }
+    set selectedUser(value) {
+        this.selUser = value;
+        this.selectedUserChange.emit(this.selUser)
+    }
 
     select(data : User) {
         this.selectedUser = data;

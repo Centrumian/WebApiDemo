@@ -1,0 +1,6 @@
+﻿<!--<p *ngIf="notes.length">Notes count : {{notes.length}}</p>-->
+
+<note-item *ngFor="let note of notes"
+           [note]="note">
+</note-item>
+

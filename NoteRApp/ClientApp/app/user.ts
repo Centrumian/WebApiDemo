@@ -1,9 +1,13 @@
-﻿import { Note } from "./note"
+﻿export enum PersonGender{
+    Male,
+    Female
+}
 
 export class User {
     id: number;
     name: string;
     age: number;
-    country: string;
-    notes: Note[];
+    registryDate: Date;
+    gender: PersonGender;
+    isAdmin: boolean;
 }

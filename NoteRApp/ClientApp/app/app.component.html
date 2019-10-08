@@ -1,14 +1,8 @@
 ﻿
 <h1>{{title}}</h1>
 
- <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div id="mainbody" class="col-6">
-            <user-list [users]="users" 
-                       [(selectedUser)]="selectedUser">..loading..</user-list>
-        </div>
-        <aside class="col-4">
-            <note-list [notes]="selectedUser ? selectedUser.notes : []">...loading...</note-list>
-        </aside>
-    </div>
+
+<div id="mainbody">
+    <user-list [users]="users"
+               [(selectedUser)]="selectedUser">..loading..</user-list>
 </div>

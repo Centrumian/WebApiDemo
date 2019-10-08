@@ -9,7 +9,7 @@ export class DataService {
     constructor(private http: HttpClient) {
     }
 
-    getProducts() {
+    getUsers() {
         this.url = "/api/users";
         return this.http.get(this.url);
     }

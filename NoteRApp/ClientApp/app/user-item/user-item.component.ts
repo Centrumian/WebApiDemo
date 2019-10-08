@@ -1,5 +1,6 @@
 ﻿import { Component, Input, EventEmitter, Output } from '@angular/core'
 import { User } from '../user'
+import { PersonGender } from '../user'
 import {
     trigger,
     state,
@@ -33,6 +34,12 @@ export class UserItemComponent {
     @Output() onSelect: EventEmitter<User> = new EventEmitter<User>();
 
     animationState: string = 'hide';
+    GenderTypesDisplay: { [index: number]: string } = {};
+
+    constructor() {
+        this.GenderTypesDisplay[PersonGender.Male] = "Male";
+        this.GenderTypesDisplay[PersonGender.Female] = "Female";
+    }
 
     public select() {
         this.onSelect.emit(this.user);

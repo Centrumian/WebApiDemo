@@ -16,6 +16,6 @@ export class AppComponent {
     constructor(private dataService: DataService) { }
 
     ngOnInit() {
-        this.dataService.getProducts().subscribe((users: User[]) => this.users = users);
+        this.dataService.getUsers().subscribe((users: User[]) => this.users = users);
     } 
 }

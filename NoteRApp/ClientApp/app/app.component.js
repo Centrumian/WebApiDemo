@@ -17,7 +17,7 @@ var AppComponent = /** @class */ (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.dataService.getProducts().subscribe(function (users) { return _this.users = users; });
+        this.dataService.getUsers().subscribe(function (users) { return _this.users = users; });
     };
     AppComponent = __decorate([
         Component({

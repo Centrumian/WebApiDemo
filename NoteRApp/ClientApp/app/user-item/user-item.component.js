@@ -9,11 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { User } from '../user';
+import { PersonGender } from '../user';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 var UserItemComponent = /** @class */ (function () {
     function UserItemComponent() {
         this.onSelect = new EventEmitter();
         this.animationState = 'hide';
+        this.GenderTypesDisplay = {};
+        this.GenderTypesDisplay[PersonGender.Male] = "Male";
+        this.GenderTypesDisplay[PersonGender.Female] = "Female";
     }
     UserItemComponent.prototype.select = function () {
         this.onSelect.emit(this.user);
@@ -48,7 +52,8 @@ var UserItemComponent = /** @class */ (function () {
                     ]),
                 ]),
             ],
-        })
+        }),
+        __metadata("design:paramtypes", [])
     ], UserItemComponent);
     return UserItemComponent;
 }());

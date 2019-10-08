@@ -41,7 +41,7 @@ namespace NoteRApp.Models.Database
 
         public IEnumerable<User> GetUsers()
         {
-            var users = _userContext.Users.Include("Notes").ToList();
+            var users = _userContext.Users.ToList();
             return users;
         }
 

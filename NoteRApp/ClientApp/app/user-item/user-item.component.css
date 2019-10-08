@@ -12,3 +12,7 @@
     .item-details{
         margin-left : 25px;
     }
+
+#isAdmin {
+    font-style: italic
+}

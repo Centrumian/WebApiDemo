@@ -11,41 +11,46 @@ namespace NoteRApp.Controllers
 {
     public class HomeController : Controller
     {
-        IUserRepository repository;
+        private readonly IUserRepository _userRepository;
+
         public HomeController(IUserRepository userRepository)
         {
-            repository = userRepository;
-        }
-
-        [Route("api/users")]
-        [HttpGet]
-        public IEnumerable<User> GetUsers()
-        {
-            return repository.GetUsers();
+            _userRepository = userRepository;
         }
 
         [HttpGet]
-        public void Add(string name)
-        {
-            User user = new User() { Name = name };
-            repository.Create(user);
-        }
-
-        [HttpGet]
-        public IActionResult Index()
+        public IActionResult Users()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Create(User user)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                user.RegistryDate = DateTime.Now;
+                _userRepository.Create(user);
+                return RedirectToAction("Users", "Home");
+            }
+            return View(user);
         }
+
+        //public IActionResult Privacy()
+        //{
+        //    return View();
+        //}
+
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }

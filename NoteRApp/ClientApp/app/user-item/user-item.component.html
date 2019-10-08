@@ -1,7 +1,9 @@
 ﻿<div class="main" (click)="select()">{{user.name}}</div>
-<div class="item-details" 
+<div class="item-details"
      [hidden]="detailsHidden"
      [@showHide]="detailsHidden ? 'hide' : 'show'">
-    <p>age : {{user.age}}</p>
-    <p *ngIf="user.country">country : {{user.country}}</p>
+    <p>Age : {{user.age}}</p>
+    <p>Registry date : {{user.registryDate | date:'dd.MM.yyyy'}}</p>
+    <p>Gender : {{GenderTypesDisplay[user.gender]}}</p>
+    <p *ngIf="user.isAdmin" id="isAdmin">Administrator</p>
 </div>

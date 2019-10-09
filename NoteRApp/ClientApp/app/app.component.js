@@ -12,9 +12,12 @@ import { DataService } from './data.service';
 var AppComponent = /** @class */ (function () {
     function AppComponent(dataService) {
         this.dataService = dataService;
-        this.title = 'Welcome, guys!';
         this.selectedUser = null;
     }
+    AppComponent.prototype.search = function (val) {
+        var _this = this;
+        this.dataService.getFilteredUsers(val.srcElement.value).subscribe(function (users) { return _this.users = users; });
+    };
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.dataService.getUsers().subscribe(function (users) { return _this.users = users; });

@@ -31,6 +31,11 @@ namespace NoteRApp.Models.Database
             throw new NotImplementedException();
         }
 
+        public IEnumerable<User> GetFilteredUsers(string param)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<User> GetUsers()
         {
             using (IDbConnection db = new SqlConnection(_connectionString))

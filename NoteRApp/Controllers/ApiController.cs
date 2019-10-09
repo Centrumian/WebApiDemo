@@ -22,10 +22,9 @@ namespace NoteRApp.Controllers
         }
 
         [HttpGet]
-        public void Add(string name)
+        public IEnumerable<User> FilteredUsers(string fstr)
         {
-            User user = new User() { Name = name };
-            repository.Create(user);
+            return repository.GetFilteredUsers(fstr);
         }
     }
 }

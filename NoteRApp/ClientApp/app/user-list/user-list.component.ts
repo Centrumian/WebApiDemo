@@ -10,7 +10,6 @@ export class UserListComponent  {
     selUser: User;
 
     @Output() selectedUserChange = new EventEmitter();
-
     @Input() users: User[];
     @Input()
     get selectedUser() {

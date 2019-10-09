@@ -9,11 +9,14 @@ import { User } from './user';
 })
 export class AppComponent {
 
-    title = 'Welcome, guys!';
     selectedUser: User = null;
     users: User[];
 
     constructor(private dataService: DataService) { }
+
+    search(val : any) {
+        this.dataService.getFilteredUsers(val.srcElement.value).subscribe((users: User[]) => this.users = users);
+    }
 
     ngOnInit() {
         this.dataService.getUsers().subscribe((users: User[]) => this.users = users);

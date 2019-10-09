@@ -32,10 +32,6 @@ module.exports = {
                 test: /\.css$/,
                 include: path.resolve(__dirname, 'ClientApp/app'),
                 loader : 'raw-loader'
-                //loader: ['raw-loader', 'css-loader', 'sass-loader', 'style-loader']
-
-                //test: /\.(css|scss)$/,
-                //loaders: ['to-string-loader', 'css-loader', 'sass-loader']
             }
         ]
     },

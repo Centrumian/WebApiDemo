@@ -11,6 +11,7 @@ namespace NoteRApp.Models.Database
         void Delete(int id);
         User Get(int id);
         IEnumerable<User> GetUsers();
+        IEnumerable<User> GetFilteredUsers(string param);
         void Update(User user);
     }
 }

@@ -4,13 +4,16 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class DataService {
 
-    private url = "";
-
     constructor(private http: HttpClient) {
     }
 
     getUsers() {
-        this.url = "/api/users";
-        return this.http.get(this.url);
+        var url = "/api/users";
+        return this.http.get(url);
+    }
+
+    getFilteredUsers(fstr : string) {
+        var url = "/api/filteredusers?fstr=" + fstr;
+        return this.http.get(url);
     }
 }

@@ -45,9 +45,20 @@ namespace NoteRApp.Models.Database
             return users;
         }
 
+        public IEnumerable<User> GetFilteredUsers(string param)
+        {
+            if (string.IsNullOrEmpty(param))
+                return GetUsers();
+           return _userContext.Users.Where(u => u.Name.ToLower().Contains(param.ToLower())).ToList();
+        }
+
         public void Update(User user)
         {
-            _userContext.Update(user);
+            if (user != null)
+            {
+                _userContext.Update(user);
+                _userContext.SaveChanges();
+            }
         }
     }
 }

@@ -12,11 +12,14 @@ import { HttpClient } from '@angular/common/http';
 var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
-        this.url = "";
     }
     DataService.prototype.getUsers = function () {
-        this.url = "/api/users";
-        return this.http.get(this.url);
+        var url = "/api/users";
+        return this.http.get(url);
+    };
+    DataService.prototype.getFilteredUsers = function (fstr) {
+        var url = "/api/filteredusers?fstr=" + fstr;
+        return this.http.get(url);
     };
     DataService = __decorate([
         Injectable(),

@@ -18,22 +18,42 @@ namespace NoteRApp.Models.Database
 
         public void Create(User user)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                var sqlQuery = "INSERT INTO Users (Name, Age, RegistryDate, Gender, IsAdmin)" +
+                    " VALUES(@Name, @Age, @RegistryDate, @Gender, @IsAdmin)";
+                db.Execute(sqlQuery, user);
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                var sqlQuery = "DELETE FROM Users" +
+                    $"WHERE Id='${id}'";
+                db.Execute(sqlQuery);
+            }
         }
 
         public User Get(int id)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                var sqlQuery = "SELECT * FROM Users" +
+                    $"WHERE Id='${id}'";
+                return db.QueryFirst<User>(sqlQuery);
+            }
         }
 
         public IEnumerable<User> GetFilteredUsers(string param)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                var sqlQuery = "SELECT * FROM Users " +
+                    $"WHERE Name LIKE '%{param}%'";
+                return db.Query<User>(sqlQuery);
+            }
         }
 
         public IEnumerable<User> GetUsers()
@@ -46,7 +66,13 @@ namespace NoteRApp.Models.Database
 
         public void Update(User user)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                var sqlQuery = "UPDATE * FROM Users" +
+                    $"SET Name={user.Name}, Age={user.Age}, RegistryDate={user.RegistryDate}, Gender={user.Gender}, IsAdmin={user.IsAdmin}" +
+                    $"WHERE Id='${user.Id}'";
+                db.Execute(sqlQuery);
+            }
         }
     }
 }

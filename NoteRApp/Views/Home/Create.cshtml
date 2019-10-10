@@ -3,7 +3,7 @@
 }
 @model User
 
-<div>
+<div style="width : 300px">
     @using (Html.BeginForm("Create", "Home", FormMethod.Post))
     {
         <div class="form-group">
@@ -23,7 +23,7 @@
         <div class="form-group">
             <div class="form-check">
                 @Html.CheckBox("IsAdmin", new { @class = "form-check-input" })
-                <label class="form-check-label" for="defaultCheck1">
+                <label class="form-check-label">
                     As administrator
                 </label>
             </div>
